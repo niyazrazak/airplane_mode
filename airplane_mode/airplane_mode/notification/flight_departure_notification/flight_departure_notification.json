@@ -1,0 +1,31 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.status == 'Scheduled'",
+ "creation": "2026-01-16 22:34:35.867120",
+ "date_changed": "date_of_departure",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Airplane Flight",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Please note the {{doc.name}} Departs in 24 hours!",
+ "message_type": "Markdown",
+ "modified": "2026-01-16 22:35:23.806180",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "flight_departure Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Departs in 24 hours!"
+}

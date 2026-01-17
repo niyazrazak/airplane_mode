@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "autoname": "format:SHP-{shop_no}",
+ "creation": "2026-01-17 01:22:34.816528",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_no",
+  "airport",
+  "column_break_elgp",
+  "shop_name",
+  "shop_type",
+  "section_break_hwbm",
+  "area_sqm",
+  "column_break_hlcq",
+  "status",
+  "tenant_information_section",
+  "tenant_name",
+  "column_break_eupn",
+  "full_name",
+  "email_id",
+  "section_break_xgvy",
+  "is_published",
+  "column_break_eooj",
+  "route"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_elgp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_hwbm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "area_sqm",
+   "fieldtype": "Float",
+   "label": "Area Sqm"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nOccupied\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hlcq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xgvy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "tenant_information_section",
+   "fieldtype": "Section Break",
+   "label": "Tenant Information"
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Shop Tenant",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "tenant_name.full_name",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fetch_from": "tenant_name.email_id",
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "column_break_eupn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_eooj",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-17 20:22:00.403142",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Airport Shop",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

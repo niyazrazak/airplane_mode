@@ -1,0 +1,30 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-16 23:50:42.246012",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letter_head": null,
+ "modified": "2026-01-16 23:56:17.696389",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Add-on Popularity",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    `item` AS \"Add-on Type:Link/Airplane Ticket Add-on Type:200\",\n    COUNT(*) AS \"Sold Count:Int:120\"\nFROM\n    `tabAirplane Ticket Add-on Item`\nGROUP BY\n    `item`;",
+ "ref_doctype": "Airplane Ticket Add-on Type",
+ "report_name": "Add-on Popularity",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

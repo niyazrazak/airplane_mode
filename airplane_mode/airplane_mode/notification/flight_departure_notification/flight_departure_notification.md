@@ -1,0 +1,1 @@
+Please note the {{doc.name}} Departs in 24 hours!

@@ -1,0 +1,81 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    <!-- Header -->
+    <div style="background: #1e40af; padding: 20px; border-radius: 8px; color: white; margin-bottom: 24px;">
+        <h1 style="margin: 0; font-size: 28px;">{{ doc.name }}</h1>
+        <p style="margin: 8px 0 0 0; opacity: 0.9;">{{ doc.airplane }}</p>
+    </div>
+
+    <!-- Flight Details -->
+    <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px;">
+        <h2 style="margin: 0 0 20px 0; color: #111827;">Flight Details</h2>
+        
+        <div style="display: grid; gap: 16px;">
+            <!-- Airline -->
+            {% set airlines = frappe.get_all('Airplane', filters={'name': doc.airplane}, fields=['airline']) %}
+            {% for airline in airlines %}
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 8px; height: 8px; background: #1e40af; border-radius: 50%;"></div>
+                <div>
+                    <span style="color: #6b7280;">Airline:</span>
+                    <span style="margin-left: 8px; font-weight: 500;">{{ airline.airline }}</span>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Route -->
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="text-align: center; flex: 1;">
+                    <div style="font-size: 32px; font-weight: bold; color: #111827;">
+                        {{ doc.source_airport_code }}
+                    </div>
+                    <div style="color: #6b7280; font-size: 14px;">From</div>
+                </div>
+                
+                <div style="flex: 2; position: relative;">
+                    <div style="height: 2px; background: #d1d5db;"></div>
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%);">
+                        <span style="color: #1e40af;">→</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; flex: 1;">
+                    <div style="font-size: 32px; font-weight: bold; color: #111827;">
+                        {{ doc.destination_airport_code }}
+                    </div>
+                    <div style="color: #6b7280; font-size: 14px;">To</div>
+                </div>
+            </div>
+
+            <!-- Departure & Duration -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <div style="color: #6b7280; margin-bottom: 4px;">Departure</div>
+                    <div style="font-weight: 500;">
+                        {{ frappe.utils.formatdate(doc.date_of_departure, "yyyy-MM-dd") }}
+                        <span style="color: #1e40af; margin-left: 8px;">
+                            {{ frappe.utils.format_time(doc.time_of_departure, "HH:mm") }}
+                        </span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="color: #6b7280; margin-bottom: 4px;">Duration</div>
+                    <div style="font-weight: 500;">{{ frappe.utils.format_duration(doc.duration)}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Button -->
+        <div style="margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+            <a href="/book-ticket/new?flight={{ doc.name }}&flight_price=100" 
+               style="display: block; text-align: center; background: #1e40af; color: white; 
+                      padding: 14px; border-radius: 6px; text-decoration: none; font-weight: 600;">
+                Book Flight
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
