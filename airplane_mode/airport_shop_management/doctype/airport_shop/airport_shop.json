@@ -1,6 +1,7 @@
 {
  "actions": [],
- "autoname": "format:SHP-{shop_no}",
+ "allow_guest_to_view": 1,
+ "autoname": "format:SHP-{MM}-{shop_no}",
  "creation": "2026-01-17 01:22:34.816528",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -16,6 +17,7 @@
   "status",
   "tenant_information_section",
   "tenant_name",
+  "contract_expiry",
   "column_break_eupn",
   "full_name",
   "email_id",
@@ -72,7 +74,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Available\nOccupied\nCancelled",
+   "options": "Available\nLeased",
    "reqd": 1
   },
   {
@@ -104,19 +106,21 @@
    "fieldtype": "Link",
    "label": "Tenant",
    "options": "Shop Tenant",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fetch_from": "tenant_name.full_name",
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "label": "Full Name"
+   "label": "Full Name",
+   "read_only": 1
   },
   {
    "fetch_from": "tenant_name.email_id",
    "fieldname": "email_id",
    "fieldtype": "Data",
-   "label": "Email ID"
+   "label": "Email ID",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_eupn",
@@ -125,12 +129,20 @@
   {
    "fieldname": "column_break_eooj",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_expiry",
+   "fieldtype": "Date",
+   "label": "Contract Expiry",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
  "links": [],
- "modified": "2026-01-17 20:22:00.403142",
+ "modified": "2026-01-17 23:27:38.805178",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Airport Shop",
@@ -150,6 +162,7 @@
    "write": 1
   }
  ],
+ "route": "route",
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",

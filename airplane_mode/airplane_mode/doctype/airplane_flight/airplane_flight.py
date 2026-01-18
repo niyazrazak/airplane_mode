@@ -32,7 +32,7 @@ class AirplaneFlight(WebsiteGenerator):
 		)
 
 
-@frappe.whitelist()
+# @frappe.whitelist()
 def update_tickets_gate(flight_name, new_gate):
 	frappe.db.set_value(
 		"Airplane Ticket",

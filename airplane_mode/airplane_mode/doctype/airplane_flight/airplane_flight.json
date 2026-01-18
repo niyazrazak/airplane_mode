@@ -158,8 +158,7 @@
    "fieldname": "crew_members",
    "fieldtype": "Table",
    "label": "Crew Members",
-   "options": "Flight Crew Member",
-   "reqd": 1
+   "options": "Flight Crew Member"
   },
   {
    "allow_on_submit": 1,
@@ -173,8 +172,13 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "is_submittable": 1,
- "links": [],
- "modified": "2026-01-17 01:16:22.073943",
+ "links": [
+  {
+   "link_doctype": "Airplane Ticket",
+   "link_fieldname": "flight"
+  }
+ ],
+ "modified": "2026-01-17 22:32:29.223689",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
